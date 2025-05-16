@@ -2,6 +2,7 @@ package modulos.produtos;
 
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 
@@ -21,7 +22,13 @@ public class ProdutosTest {
         // Navegar para a pagina da Lojinha Web
         navegador.get("http://165.227.93.41/lojinha-web/v2");
         //Fazer login
+        navegador.findElement(By.cssSelector("label[for='usuario']")).click();
+        navegador.findElement(By.id("usuario")).sendKeys("admin");
 
+        navegador.findElement(By.cssSelector("label[for='senha']")).click();
+        navegador.findElement(By.id("senha")).sendKeys("admin");
+
+        navegador.findElement(By.id("btn-entrar")).click();
         // Vou para a tela de registro de produto
 
         // Vou preencher dados do produto e o valor sera igaul a zero
